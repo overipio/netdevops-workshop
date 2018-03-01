@@ -1,0 +1,9 @@
+config:
+  - parent: object-group service Web_Service
+    lines:
+      - tcp eq www
+      - tcp eq 443
+  - parent: object-group service Management
+    lines:
+      - tcp eq telnet
+      - tcp eq 22

@@ -1,0 +1,11 @@
+- hosts: lab_router
+  connection: local
+  vars_files:
+    - config.yml
+  tasks:
+    - name: configure object groups
+      ios_config:
+        parents: "{{ item.parent }}"
+        lines: "{{ item.lines }}"
+        match: line
+      with_items: "{{ config }}"

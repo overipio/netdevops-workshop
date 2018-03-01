@@ -1,0 +1,13 @@
+- hosts: lab_router
+  connection: local
+  vars:
+    http_port: www
+    https_port: 443
+  tasks:
+    - name: configure object group Web_Service
+      ios_config:
+        parents: object-group service Web_Service
+        lines:
+          - "tcp eq {{ http_port }}"
+          - "tcp eq {{ https_port }}"
+        match: line

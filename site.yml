@@ -1,0 +1,9 @@
+- hosts: lab_router
+  connection: local
+  tasks:
+    - name: ios facts
+      ios_facts:
+        gather_subset: all
+      register: facts
+
+    - debug: var=facts

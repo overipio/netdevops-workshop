@@ -1,0 +1,7 @@
+- name: configure cisco
+  ios_config:
+    parents: "{{ item.parent | default(omit) }}"
+    lines: "{{ item.lines | default(omit) }}"
+    before: "{{ item.before | default(omit) }}"
+    match: line
+  with_items: "{{ config }}"
